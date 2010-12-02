@@ -1,0 +1,7 @@
+configure git repo
+	clone rep with git+ssh://git@github.com:dangt85/Dangt85.git
+	use key as the usual password
+	import project
+	configure push repo (the same)
+	commit
+	try push
