@@ -57,14 +57,7 @@
 
         <div class="grid_8">
 
-          <h3>Direct Contact</h3>
-          <p>
-            Location: Caracas - Venezuela<br />
-            Email: mail_to('contact@danielgonzalez.com.ve')<br />
-            Cell-phone: +58 412 330 6853
-          </p>
-
-          <h3>Support Styleshout</h3>
+          <!--h3>Support Styleshout</h3>
           <p>
             If you are interested in supporting <a href="http://www.styleshout.com">styleshout</a>'s
             work and would like to contribute, you are welcome to make a small donation
@@ -79,11 +72,7 @@
             <li><a href="http://www.pdphoto.org/">PDPhoto.org - <span>Public Domain Photos</span></a></li>
             <li><a href="http://www.freephotos.se/">FreePhotos.se - <span>Free &amp; Public Domain Photos</span></a></li>
             <li><a href="http://www.fotolia.com/partner/114283">Fotolia - <span>Free stock images or from $1</span></a></li>
-          </ul>
-
-        </div>
-
-        <div class="grid_8">
+          </ul-->
 
           <h3>Things I use/like</h3>
           <p class="thumbs">
@@ -100,35 +89,18 @@
           <a href="http://www.apple.com"><img src="images/mac.jpg" height="40" width="40" alt="thumbnail" /></a>
           <a href="http://rubyforge.org/projects/rfid4r/"><img src="images/rfid.jpg" height="40" width="40" alt="thumbnail" /></a>
           </p>
+          
+        </div>
+
+        <div class="grid_8">
 
           <h3>About me</h3>
           <p>
             <span class="thumbs">
-            <a href="/"><img src="images/coliseo.jpg" class="float-left" height="40" width="40" alt="thumbnail" /></a>
+            	<a href="/"><img src="images/coliseo.jpg" class="float-left" height="40" width="40" alt="thumbnail" /></a>
 			</span>
-            I'm a web developer based in Venezuela. I consider myself critical,
-            reflexive and methodical on resolving various computer scenarios; innovative
-            as seeking for new alternatives; honest and ethical professional perform;
-            responsible and methodical at doing tasks; communicative and participative
-            leadership, in order to facilitate the use of information and communication
-            technologies; formal, systematic and precise at developing tasks; dedicated
-            to the critic knowledge of the technological advances and permanently
-            updates.  link_to_function 'Read more...', "$('profile').appear();" 
+            I'm a Computer Science Bachelor from the Central University of Venezuela 
           </p>
-          <div id="profile" style="display:none">
-            <h3>Profile &amp; Overall Experience</h3>
-            <p>
-              I have experience in Linux and Windows environments, virtualization
-              tools, configuring production, development and testing web environments.
-              Capacity to write scripts for systems automation; basic knowledge
-              of TCP/IP networking, load balancers, IDSs, and firewalls; experience
-              working with system and network monitoring tools: <i>Syslogd</i>,
-              <i>Firestarter/iptables</i>, <i>Ettercap</i>, <i>Wireshark</i>, and
-              so on; experience with <i>MySQL</i> and <i>Oracle</i> database tools
-              for design, development and administration; general working knowledge
-              of <i>PL/SQL</i>.  link_to_function 'Read less...', "$('profile').fade();" 
-            </p>
-          </div>
 
         </div>
 
