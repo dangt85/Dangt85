@@ -28,6 +28,14 @@
 		<url-pattern>/showPosts</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>contact</servlet-name>
+		<jsp-file>/WEB-INF/jsp/contact.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>contact</servlet-name>
+		<url-pattern>/contact</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>index</servlet-name>
 		<jsp-file>/WEB-INF/jsp/index.jsp</jsp-file>
 	</servlet>

@@ -49,8 +49,8 @@
             <li>
               <a href="/">Portfolio</a>
             </li>
-            <li>
-              <a href="/">Contact</a>
+            <li <% if(request.getRequestURI().equals("/contact")) { out.write("id=\"current\""); } %>>
+              <a href="/contact">Contact</a>
             </li>
           </ul>
         </div>
