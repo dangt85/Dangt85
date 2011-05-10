@@ -10,19 +10,20 @@
               <h3>Sidebar Menu</h3>
               <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/">Blog</a></li>
+                <li><a href="/posts">Blog</a></li>
                 <li><a href="/">Portfolio</a></li>
-                <li><a href="/">Contact</a></li>
+                <li><a href="/contact">Contact</a></li>
               </ul>
             </div>
 
             <div class="sidemenu">
               <h3>Links</h3>
               <ul>
-                <li><a href="http://www.PDPhoto.org/">PDPhoto</a></li>
-                <li><a href="http://www.alistapart.com">Alistapart</a></li>
-                <li><a href="http://960.gs/">960 Grid System</a></li>
-                <li><a href="http://www.freephotos.se/">FreePhotos.se</a></li>
+                <li><a href="https://www.owasp.org" target="_blank">OWASP</a></li>
+                <li><a href="http://www.PDPhoto.org/" target="_blank">PDPhoto</a></li>
+                <li><a href="http://www.alistapart.com" target="_blank">Alistapart</a></li>
+                <li><a href="http://960.gs/" target="_blank">960 Grid System</a></li>
+                <li><a href="http://www.freephotos.se/" target="_blank">FreePhotos.se</a></li>
               </ul>
             </div>
 
@@ -33,12 +34,12 @@
             <div class="sidemenu">
               <h3>Sponsors</h3>
               <ul>
-                <li><a href="http://themeforest.net?ref=ealigam">ThemeForest <br /><span>Your Choice for Site Templates, Wordpress, Joomla and CMS Themes</span></a></li>
-                <li><a href="http://www.4templates.com/?aff=ealigam">4templates <br /><span>Low Cost Hi-Quality Templates</span></a></li>
-                <li><a href="http://store.templatemonster.com?aff=ealigam">TemplateMonster <br /><span>Delivering the Best Templates on the Net!</span></a></li>
-                <li><a href="http://tinyurl.com/3cgv2m">Text Link Ads <br /><span>Monetized your website</span></a></li>
-                <li><a href="http://www.fotolia.com/partner/114283">Fotolia <br /><span>Free stock images or from $1</span></a></li>
-                <li><a href="http://www.dreamhost.com/r.cgi?287326">Dreamhost <br /><span>Premium webhosting</span></a></li>
+                <li><a href="http://themeforest.net?ref=ealigam" target="_blank">ThemeForest <br /><span>Your Choice for Site Templates, Wordpress, Joomla and CMS Themes</span></a></li>
+                <li><a href="http://www.4templates.com/?aff=ealigam" target="_blank">4templates <br /><span>Low Cost Hi-Quality Templates</span></a></li>
+                <li><a href="http://store.templatemonster.com?aff=ealigam" target="_blank">TemplateMonster <br /><span>Delivering the Best Templates on the Net!</span></a></li>
+                <li><a href="http://tinyurl.com/3cgv2m" target="_blank">Text Link Ads <br /><span>Monetized your website</span></a></li>
+                <li><a href="http://www.fotolia.com/partner/114283" target="_blank">Fotolia <br /><span>Free stock images or from $1</span></a></li>
+                <li><a href="http://www.dreamhost.com/r.cgi?287326" target="_blank">Dreamhost <br /><span>Premium webhosting</span></a></li>
               </ul>
             </div>
 
@@ -57,37 +58,20 @@
 
         <div class="grid_8">
 
-          <!--h3>Support Styleshout</h3>
-          <p>
-            If you are interested in supporting <a href="http://www.styleshout.com">styleshout</a>'s
-            work and would like to contribute, you are welcome to make a small donation
-            through the donate link on the <a href="http://www.styleshout.com/">site</a>
-            - it will be a great help and will surely be appreciated.
-          </p>
-
-          <ul class="footer-list">
-            <li><a href="http://www.cssmania.com/">CSSMania - <span>CSS Design Showcase</span></a></li>
-            <li><a href="http://www.alistapart.com/">AListApart - <span>For People Who Make Websites</span></a></li>
-            <li><a href="http://www.psdtuts.com/">PSDTuts.com - <span>Photoshop Tutorials And Links</span></a></li>
-            <li><a href="http://www.pdphoto.org/">PDPhoto.org - <span>Public Domain Photos</span></a></li>
-            <li><a href="http://www.freephotos.se/">FreePhotos.se - <span>Free &amp; Public Domain Photos</span></a></li>
-            <li><a href="http://www.fotolia.com/partner/114283">Fotolia - <span>Free stock images or from $1</span></a></li>
-          </ul-->
-
           <h3>Things I use/like</h3>
           <p class="thumbs">
-          <a href="http://rubyonrails.org"><img src="images/rails.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://java.sun.com"><img src="images/java.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://php.net"><img src="images/php.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.mysql.com"><img src="images/mysql.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.oracle.com"><img src="images/oracle.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://jquery.com"><img src="images/jquery.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.w3.org"><img src="images/w3c.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.firefox.com"><img src="images/firefox.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.microsoft.com/windows/"><img src="images/windows.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.linux.com/"><img src="images/linux.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.apple.com"><img src="images/mac.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://rubyforge.org/projects/rfid4r/"><img src="images/rfid.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://rubyonrails.org" target="_blank"><img src="images/rails.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://java.sun.com" target="_blank"><img src="images/java.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://php.net" target="_blank"><img src="images/php.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://www.mysql.com" target="_blank"><img src="images/mysql.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://www.oracle.com" target="_blank"><img src="images/oracle.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://jquery.com" target="_blank"><img src="images/jquery.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://www.w3.org" target="_blank"><img src="images/w3c.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://www.firefox.com" target="_blank"><img src="images/firefox.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://www.microsoft.com/windows/" target="_blank"><img src="images/windows.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://www.linux.com/" target="_blank"><img src="images/linux.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://www.apple.com" target="_blank"><img src="images/mac.jpg" height="40" width="40" alt="thumbnail" /></a>
+          <a href="http://rubyforge.org/projects/rfid4r/" target="_blank"><img src="images/rfid.jpg" height="40" width="40" alt="thumbnail" /></a>
           </p>
           
         </div>
@@ -110,7 +94,7 @@
 
         <p class="bottom-left">
         <a href="http://dangt85.appspot.com">dangt85.appspot.com</a> &copy; 2009 - 2010 |
-          Design by : <a href="http://www.styleshout.com">styleshout</a>
+          Design by : <a href="http://www.styleshout.com" target="_blank">styleshout</a>
         </p>
 
         <p class="bottom-right" >

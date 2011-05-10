@@ -1,17 +1,16 @@
 <%@ include file="header.jsp" %>
 
-<%@ page import="com.appspot.models.Posts" %>
+<%@ page import="com.appspot.models.Post" %>
 <%@ page import="java.util.List" %>
 
 <%
-	List<Posts> posts = (List<Posts>) request.getAttribute("posts");
+	List<Post> posts = (List<Post>) request.getAttribute("posts");
 	if(posts == null || posts.isEmpty()) {
 %>
 <p>There are no posts</p>
-<% 
+<%
 	} else {
-		for(Posts post : posts) {
-			
+		for(Post post : posts) {
 %>
 	<h3><%= post.getTitle() %></h3>
 	<a href="/posts?method=delete&id=<%= post.getKey() %>">remove</a>

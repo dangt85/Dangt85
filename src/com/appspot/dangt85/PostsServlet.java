@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.appspot.models.PMF;
-import com.appspot.models.Posts;
+import com.appspot.models.Post;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -50,7 +50,7 @@ public class PostsServlet extends HttpServlet {
 				if (method.equals("delete")) {
 					String id = request.getParameter("id");
 					try {
-						Posts post = pm.getObjectById(Posts.class,
+						Post post = pm.getObjectById(Post.class,
 								Long.valueOf(id));
 						pm.deletePersistent(post);
 					} catch (Exception e) {
@@ -58,8 +58,8 @@ public class PostsServlet extends HttpServlet {
 				}
 			}
 
-			String query = "select from " + Posts.class.getName();
-			List<Posts> posts = (List<Posts>) pm.newQuery(query).execute();
+			String query = "select from " + Post.class.getName();
+			List<Post> posts = (List<Post>) pm.newQuery(query).execute();
 			request.setAttribute("posts", posts);
 			RequestDispatcher rd = request.getRequestDispatcher("/showPosts");
 			rd.forward(request, response);
@@ -82,13 +82,15 @@ public class PostsServlet extends HttpServlet {
 			response.setContentType("text/html");
 			String title = (String) request.getParameter("title");
 			String content = (String) request.getParameter("content");
-			Posts post = new Posts(user, title, content, new Date(), new Date());
+			Post post = new Post(user, title, content, new Date(), new Date());
 
-			PersistenceManager pm = PMF.get().getPersistenceManager();
-			try {
-				pm.makePersistent(post);
-			} finally {
-				pm.close();
+			if (post.isValid()) {
+				PersistenceManager pm = PMF.get().getPersistenceManager();
+				try {
+					pm.makePersistent(post);
+				} finally {
+					pm.close();
+				}
 			}
 			response.sendRedirect("/posts");
 		} else {
