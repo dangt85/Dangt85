@@ -31,6 +31,8 @@ label {font-size: 1.1em; height: 25px; line-height: 25px;}
 		font-size: inherit;
 		padding: 2px;
 	}
+	textarea { float:left }
+	
 	input[type='text']:hover,
 	input[type='email']:hover,
 	input[type='url']:hover,
@@ -68,7 +70,7 @@ label {font-size: 1.1em; height: 25px; line-height: 25px;}
 	input:required, textarea:required {outline: 1px solid #C74350;}
 	
 	/* Textarea */
-	textarea {width: 99%; margin-bottom: 7px;}
+	textarea {margin-bottom: 7px;}
 
 	/* Alignments */
 	div.left {margin-left: 1em;}

@@ -55,11 +55,11 @@
 				<li <% if(request.getRequestURI().equals("/showPosts")) { out.write("class=\"active\""); } %>>
 					<a href="/posts">blog</a>
 				</li>
-				<li>
-					<a href="/">portfolio</a>
+				<li <% if(request.getRequestURI().equals("/projects")) { out.write("class=\"active\""); } %>>
+					<a href="/projects">portfolio</a>
 				</li>
-				<li>
-					<a href="/">contact</a>
+				<li <% if(request.getRequestURI().equals("/contact")) { out.write("class=\"active\""); } %>>
+					<a href="/contact">contact</a>
 				</li>
 			</ul>
 		</nav>

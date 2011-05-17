@@ -31,10 +31,10 @@ public class Post {
 	@Persistent
 	private Date updatedAt;
 
-	public Post(User author, String title, String content,
+	public Post(/*User author, */String title, String content,
 			Date createdAt, Date updatedAt) {
 		super();
-		this.author = author;
+		//this.author = author;
 		this.title = title;
 		this.content = content;
 		this.createdAt = createdAt;
