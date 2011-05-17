@@ -7,8 +7,6 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-import org.apache.commons.lang.StringEscapeUtils;
-
 import com.google.appengine.api.users.User;
 
 @PersistenceCapable
@@ -92,16 +90,7 @@ public class Post {
 	}
 
 	public boolean isValid() {
-		if(this.title != null && !this.title.isEmpty()) {
-			this.title = StringEscapeUtils.escapeHtml(this.title);
-		} else {
-			return false;
-		}
-		if(this.content != null && !this.content.isEmpty()) {
-			this.content = StringEscapeUtils.escapeHtml(this.content);
-		} else {
-			return false;
-		}
+		
 		
 		return true;
 	}

@@ -1,6 +1,69 @@
 <%@ include file="header.jsp" %>
 
-    <p style="color: green">flash[:notice]</p>
-	Something
+    <section id="content" class="body">
+		
+		<ol id="posts-list" class="hfeed">
+			<li><article class="hentry">	
+				<header>
+					<h2 class="entry-title"><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="bookmark" title="Permalink to this POST TITLE">This be the title</a></h2>
+				</header>
+				
+				<footer class="post-info">
+					<abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
+						10th October 2005
+					</abbr>
+
+					<address class="vcard author">
+						By <a class="url fn" href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#">Enrique Ramírez</a>
+					</address>
+				</footer><!-- /.post-info -->
+				
+				<div class="entry-content">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis nunc vitae libero iaculis elementum. Nullam et justo <a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#">non sapien</a> dapibus blandit nec et leo. Ut ut malesuada tellus.</p>
+				</div><!-- /.entry-content -->
+			</article></li>
+			
+			<li><article class="hentry">	
+				<header>
+					<h2 class="entry-title"><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="bookmark" title="Permalink to this POST TITLE">This be the title</a></h2>
+				</header>
+				
+				<footer class="post-info">
+					<abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
+						10th October 2005
+					</abbr>
+
+					<address class="vcard author">
+						By <a class="url fn" href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#">Enrique Ramírez</a>
+					</address>
+				</footer><!-- /.post-info -->
+				
+				<div class="entry-content">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis nunc vitae libero iaculis elementum. Nullam et justo <a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#">non sapien</a> dapibus blandit nec et leo. Ut ut malesuada tellus.</p>
+				</div><!-- /.entry-content -->
+			</article></li>
+			
+			<li><article class="hentry">	
+				<header>
+					<h2 class="entry-title"><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="bookmark" title="Permalink to this POST TITLE">This be the title</a></h2>
+				</header>
+				
+				<footer class="post-info">
+					<abbr class="published" title="2005-10-10T14:07:00-07:00"><!-- YYYYMMDDThh:mm:ss+ZZZZ -->
+						10th October 2005
+					</abbr>
+
+					<address class="vcard author">
+						By <a class="url fn" href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#">Enrique Ramírez</a>
+					</address>
+				</footer><!-- /.post-info -->
+				
+				<div class="entry-content">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis nunc vitae libero iaculis elementum. Nullam et justo <a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#">non sapien</a> dapibus blandit nec et leo. Ut ut malesuada tellus.</p>
+				</div><!-- /.entry-content -->
+			</article></li>
+		</ol><!-- /#posts-list -->
+		
+	</section><!-- /#content -->
 
 <%@ include file="footer.jsp" %>

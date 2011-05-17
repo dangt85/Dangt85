@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page contentType="text/html;charset=UTF-8"%>
+<%@page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,13 +10,27 @@
     <meta name="keywords" content="daniel gonzalez, venezuela, web developer, freelancer, j2ee, ruby on rails, ruby, php, mysql, oracle, software developer, database administrator, database desingner, blog, portfolio" />
     <meta name="description" content="personal freelancer web developer portfolio and blog website" />
     <meta name="author" content="Daniel Gonzalez" />
-    <link href="stylesheets/screen.css" media="screen" rel="stylesheet" type="text/css" />
-	<script src="javascripts/application.js" type="text/javascript"></script>
-	<script src="javascripts/prototype.js" type="text/javascript"></script>
-	<script src="javascripts/effects.js" type="text/javascript"></script>
-	<script src="javascripts/controls.js" type="text/javascript"></script>
-	<script src="javascripts/dragdrop.js" type="text/javascript"></script>
+    
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!--[if lte IE 7]>
+		<link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
+		<script src="js/IE8.js" type="text/javascript"></script>
+	<![endif]-->
+		
+	<!--[if lt IE 7]>
+		<link rel="stylesheet" type="text/css" media="all" href="css/ie6.css"/>
+	<![endif]-->
+    
+    
+	<script src="js/jquery-1.6.1.min.js" type="text/javascript"></script>
+    
     <!-- %= auto_discovery_link_tag(:rss, {:controller => 'posts', :action=> 'index', :format => 'rss'}, {:title => 'RSS Feeds'}) %-->
+  	
   	<script type="text/javascript">
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-6566238-4']);
@@ -29,50 +43,38 @@
 	</script>
   </head>
   
-  <body>
-
-    <!-- header starts-->
-    <div id="header-wrap"><div id="header" class="container_16">
-
-        <h1 id="logo-text"><a href="/">Daniel Gonzalez</a></h1>
-        <p id="intro">Freelance web developer...</p>
-
-        <!-- navigation -->
-        <div id="nav">
-          <ul>
-            <li <% if(request.getRequestURI().equals("/index")) { out.write("id=\"current\""); } %>>
-              <a href="/">Home</a>
-            </li>
-            <li <% if(request.getRequestURI().equals("/showPosts")) { out.write("id=\"current\""); } %>>
-              <a href="/posts">Blog</a>
-            </li>
-            <li>
-              <a href="/">Portfolio</a>
-            </li>
-            <li <% if(request.getRequestURI().equals("/contact")) { out.write("id=\"current\""); } %>>
-              <a href="/contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-
-        <div id="header-image"></div>
-
-        <form action="http://www.google.com/cse" id="cse-search-box">
-          <div>
-            <input type="hidden" name="cx" value="000220205247216395737:9z_0-tsdijw" />
-            <input type="hidden" name="ie" value="UTF-8" />
-            <input class="tbox" id="qsearch" type="text" name="q" />
-            <input class="btn" alt="Search" type="image" name="sa" title="Search" src="/images/search.gif" />
-          </div>
-        </form>
-
-        <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box"></script>
-
-        <!-- header ends here -->
-      </div></div>
-
-    <!-- content starts -->
-    <div id="content-outer"><div id="content-wrapper" class="container_16">
-
-        <!-- main -->
-        <div id="main" class="grid_8">
+  <body id="index" class="home">
+  
+  	<header id="banner" class="body">
+		<h1><a href="/">Daniel Gonzalez <strong>Software Developer in the year <del>2022</del> <ins>2011</ins></strong></a></h1>
+		<nav>
+			<ul>
+				<li <% if(request.getRequestURI().equals("/index")) { out.write("class=\"active\""); } %>>
+					<a href="/">home</a>
+				</li>
+				<li <% if(request.getRequestURI().equals("/showPosts")) { out.write("class=\"active\""); } %>>
+					<a href="/posts">blog</a>
+				</li>
+				<li>
+					<a href="/">portfolio</a>
+				</li>
+				<li>
+					<a href="/">contact</a>
+				</li>
+			</ul>
+		</nav>
+	</header><!-- /#banner -->
+	
+	<aside id="featured" class="body">
+		<article>
+			<figure>
+				<img src="images/sm-logo.gif" alt="dangt85 logo">
+			</figure>
+			<hgroup>
+				<h2>Featured Article</h2>
+				<h3><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#">HTML5 in Smashing Magazine!</a></h3>
+			</hgroup>
+			<p>Discover how to use Graceful Degradation and Progressive Enhancement techniques to achieve an outstanding, cross-browser <a href="http://dev.w3.org/html5/spec/Overview.html" rel="external">HTML5</a> and <a href="http://www.w3.org/TR/css3-roadmap/" rel="external">CSS3</a> website today!</p>
+		</article>
+	</aside><!-- /#featured -->
+	
