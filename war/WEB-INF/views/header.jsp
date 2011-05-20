@@ -52,7 +52,7 @@
 				<li <% if(request.getRequestURI().equals("/index")) { out.write("class=\"active\""); } %>>
 					<a href="/">home</a>
 				</li>
-				<li <% if(request.getRequestURI().equals("/showPosts")) { out.write("class=\"active\""); } %>>
+				<li <% if(request.getRequestURI().equals("/posts")) { out.write("class=\"active\""); } %>>
 					<a href="/posts">blog</a>
 				</li>
 				<li <% if(request.getRequestURI().equals("/projects")) { out.write("class=\"active\""); } %>>

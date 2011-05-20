@@ -31,10 +31,10 @@
 		<div class="social">
 			<h2>social</h2>
 			<ul>
-	        	<li><a href="/" rel="alternate">rss</a></li>
-	        	<li><a href="https://github.com/dangt85">github</a></li>
-				<li><a href="http://facebook.com/danielgt85" rel="me">facebook</a></li>
-				<li><a href="http://twitter.com/dangt85" rel="me">twitter</a></li>
+	        	<li><a href="#rss" rel="alternate">rss</a></li>
+	        	<li><a href="https://github.com/dangt85" rel="me" target="_blank">github</a></li>
+				<li><a href="http://facebook.com/danielgt85" rel="me" target="_blank">facebook</a></li>
+				<li><a href="http://twitter.com/dangt85" rel="me" target="_blank">twitter</a></li>
 			</ul>
 		</div><!-- /.social -->
 	</section><!-- /#extras -->
@@ -52,50 +52,10 @@
 			<span class="bio">I'm a Computer Science Bachelor from the Central University of Venezuela.</span>
 		
 		</address><!-- /#about -->
-		
-		
-		<!-- div class="grid_8">
-
-          <h3>Things I use/like</h3>
-          <p class="thumbs">
-          <a href="http://rubyonrails.org" target="_blank"><img src="images/rails.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://java.sun.com" target="_blank"><img src="images/java.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://php.net" target="_blank"><img src="images/php.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.mysql.com" target="_blank"><img src="images/mysql.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.oracle.com" target="_blank"><img src="images/oracle.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://jquery.com" target="_blank"><img src="images/jquery.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.w3.org" target="_blank"><img src="images/w3c.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.firefox.com" target="_blank"><img src="images/firefox.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.microsoft.com/windows/" target="_blank"><img src="images/windows.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.linux.com/" target="_blank"><img src="images/linux.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://www.apple.com" target="_blank"><img src="images/mac.jpg" height="40" width="40" alt="thumbnail" /></a>
-          <a href="http://rubyforge.org/projects/rfid4r/" target="_blank"><img src="images/rfid.jpg" height="40" width="40" alt="thumbnail" /></a>
-          </p>
-          
-        </div-->
-        
-        
-		
-		<a href="/">dangt85.appspot.com</a> &copy; 2009 - 2011
-		
-		
-		
-		<p>
-		    <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fdangt85.appspot.com%2F">
-		        HTML5
-		    </a>
-		</p>
 
 		<p>
-		    <a href="http://jigsaw.w3.org/css-validator/check/referer">
-		        <img style="border:0;width:88px;height:31px"
-		            src="http://jigsaw.w3.org/css-validator/images/vcss"
-		            alt="Valid CSS!" />
-		    </a>
-		</p>
-		
-		<p class="bottom-center">
-			<img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif"
+          <a href="/">dangt85.appspot.com</a> &copy; 2009 - 2011
+		  <img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif"
 			alt="Powered by Google App Engine" />
 		</p>
 		

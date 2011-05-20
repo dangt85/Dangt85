@@ -1,25 +1,21 @@
 package com.appspot.dangt85.models;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
 import com.google.appengine.api.datastore.Text;
 
-@PersistenceCapable
-public class Post {
+public class Reply {
 
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long key;
 
 	@Persistent
-	private String title;
+	private String repliedBy;
 
 	@Persistent
 	private Text content;
@@ -27,20 +23,14 @@ public class Post {
 	@Persistent
 	private Date createdAt;
 
-	@Persistent(mappedBy = "post")
-	private List<Reply> replies;
+	@Persistent
+	private Post post;
 
-	public Post() {
+	public Reply(String repliedBy, Text content, Date createdAt) {
 		super();
-		this.replies = new ArrayList<Reply>();
-	}
-
-	public Post(String title, Text content, Date createdAt) {
-		super();
-		this.title = title;
+		this.repliedBy = repliedBy;
 		this.content = content;
 		this.createdAt = createdAt;
-		this.replies = new ArrayList<Reply>();
 	}
 
 	public Long getKey() {
@@ -51,12 +41,12 @@ public class Post {
 		this.key = key;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getRepliedBy() {
+		return repliedBy;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setRepliedBy(String repliedBy) {
+		this.repliedBy = repliedBy;
 	}
 
 	public Text getContent() {
@@ -75,15 +65,12 @@ public class Post {
 		this.createdAt = createdAt;
 	}
 
-	public List<Reply> getReplies() {
-		return replies;
+	public Post getPost() {
+		return post;
 	}
 
-	public void setReplies(List<Reply> replies) {
-		this.replies = replies;
+	public void setPost(Post post) {
+		this.post = post;
 	}
 
-	public void addReply(Reply reply) {
-		replies.add(reply);
-	}
 }
