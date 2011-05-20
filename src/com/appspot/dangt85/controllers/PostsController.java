@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.appspot.dangt85.models.PMF;
 import com.appspot.dangt85.models.Post;
@@ -23,14 +24,19 @@ public class PostsController {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(method = RequestMethod.GET)
-	public String list(Model model) {
+	public ModelAndView list(Model model) {
+		ModelAndView mav = new ModelAndView();
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		String query = "select from " + Post.class.getName();
 		List<Post> posts = (List<Post>) pm.newQuery(query).execute();
+		
+		System.out.println("aqui hay estos posts: " + posts);
+		
 		if(!posts.isEmpty()) {
-			model.addAllAttributes(posts);
+			mav.addObject("posts", posts);
 		}
-		return "posts/list";
+		mav.setViewName("posts/list");
+		return mav;
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
