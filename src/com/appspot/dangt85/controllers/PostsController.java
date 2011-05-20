@@ -24,13 +24,13 @@ public class PostsController {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView list(Model model) {
+	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView();
+		
 		PersistenceManager pm = PMF.get().getPersistenceManager();
+		
 		String query = "select from " + Post.class.getName();
 		List<Post> posts = (List<Post>) pm.newQuery(query).execute();
-		
-		System.out.println("aqui hay estos posts: " + posts);
 		
 		if(!posts.isEmpty()) {
 			mav.addObject("posts", posts);
@@ -48,7 +48,6 @@ public class PostsController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String create(@ModelAttribute("post") Post post, BindingResult result, Model model) {
 
-		System.out.println("me meti " + post.getTitle());
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
 			post.setCreatedAt(new Date());
