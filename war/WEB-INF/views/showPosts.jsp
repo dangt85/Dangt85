@@ -1,25 +1,23 @@
 <%@ include file="header.jsp" %>
 
-<%@ page import="com.appspot.models.Post" %>
+<%@ page import="com.appspot.dangt85.models.Post" %>
 <%@ page import="java.util.List" %>
 
+    <section id="content" class="body">
+		<ol id="posts-list" class="hfeed">
 <%
 	List<Post> posts = (List<Post>) request.getAttribute("posts");
 	if(posts == null || posts.isEmpty()) {
 %>
-    <h3>There are no posts</h3>
+    <li><h2>There are no posts</h2></li>
 <%
 	} else {
-%>
-    <section id="content" class="body">
-		<ol id="posts-list" class="hfeed">
-<%
 		for(Post post : posts) {
 %>
 	      <li>
 	        <article class="hentry">	
 				<header>
-					<h2 class="entry-title"><a href="" rel="bookmark" title="Permalink to this POST TITLE"><%= post.getTitle() %></a></h2>
+					<h2 class="entry-title"><a href="#" rel="bookmark" title="Permalink to this POST TITLE"><%= post.getTitle() %></a></h2>
 					<a href="/posts?method=delete&id=<%= post.getKey() %>">remove</a>
 				</header>
 				
@@ -29,7 +27,7 @@
 					</abbr>
 
 					<address class="vcard author">
-						By <a class="url fn" href="/">Daniel Gonzalez</a>
+						By <a class="url fn" href="#">Daniel Gonzalez</a>
 					</address>
 				</footer><!-- /.post-info -->
 				
@@ -43,14 +41,12 @@
 	}
 %>
         </ol><!-- /#posts-list -->
-	</section><!-- /#content -->
-
-
 
 <form action="/posts" method="post">
 Title: <input name="title" type="text" /><br />
-Content: <textarea rows="4" cols="30" name="content"></textarea><br />
+<textarea rows="4" cols="30" name="content"></textarea><div style="clear:both"></div><br />
 <input type="submit" />
 </form>
+	</section><!-- /#content -->
 
 <%@ include file="footer.jsp" %>

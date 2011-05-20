@@ -1,4 +1,4 @@
-package com.appspot.models;
+package com.appspot.dangt85.models;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManagerFactory;

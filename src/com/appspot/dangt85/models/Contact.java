@@ -1,4 +1,4 @@
-package com.appspot.models;
+package com.appspot.dangt85.models;
 
 import java.text.DateFormat;
 import java.util.Date;
