@@ -16,7 +16,7 @@ public class Post {
 
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Long key;
+	private Long id;
 
 	@Persistent
 	private String title;
@@ -43,12 +43,12 @@ public class Post {
 		this.replies = new ArrayList<Reply>();
 	}
 
-	public Long getKey() {
-		return key;
+	public Long getId() {
+		return id;
 	}
 
-	public void setKey(Long key) {
-		this.key = key;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getTitle() {

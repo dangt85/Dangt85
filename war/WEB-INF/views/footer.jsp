@@ -17,21 +17,13 @@
 				<li><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="external">W3C</a></li>
 				<li><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="external">Wordpress</a></li>
 				<li><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="external">Wikipedia</a></li>
-				
-				<li><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="external">HTML5 Doctor</a></li>
-				<li><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="external">HTML5 Spec (working draft)</a></li>
-				<li><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="external">Smashing Magazine</a></li>
-				
-				<li><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="external">W3C</a></li>
-				<li><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="external">Wordpress</a></li>
-				<li><a href="http://media.smashingmagazine.com/cdn_smash/wp-content/uploads/images/smashing-html5/files/index.html#" rel="external">Wikipedia</a></li>
 			</ul>
 		</div><!-- /.blogroll -->
 		
 		<div class="social">
 			<h2>social</h2>
 			<ul>
-	        	<li><a href="#rss" rel="alternate">rss</a></li>
+	        	<li><a href="/rss" rel="alternate">rss</a></li>
 	        	<li><a href="https://github.com/dangt85" rel="me" target="_blank">github</a></li>
 				<li><a href="http://facebook.com/danielgt85" rel="me" target="_blank">facebook</a></li>
 				<li><a href="http://twitter.com/dangt85" rel="me" target="_blank">twitter</a></li>
@@ -47,7 +39,7 @@
 			</span><!-- /.primary -->
 		
 			<!-- img src="./Smashing HTML5!_files/avatar.gif" alt="Smashing Magazine Logo" class="photo"-->
-			<img src="images/coliseo.jpg" class="logo" height="40" width="40" alt="thumbnail" />
+			<img src="/images/coliseo.jpg" class="logo" height="40" width="40" alt="thumbnail" />
 		
 			<span class="bio">I'm a Computer Science Bachelor from the Central University of Venezuela.</span>
 		

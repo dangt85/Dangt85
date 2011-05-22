@@ -1,8 +1,5 @@
-<%@ include file="../header.jsp"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ include file="/WEB-INF/views/includes.jsp" %>
+<%@ include file="/WEB-INF/views/header.jsp" %>
 
 <section id="content" class="body">
 
@@ -23,7 +20,9 @@
                 <a href="#" rel="bookmark"
                   title="Permalink to this POST TITLE">${post.title}</a>
               </h2>
-              <a href="/posts?method=delete&id=${post.key}">remove</a>
+              <form:form id="deletePost" method="delete">
+                <a href="#" onclick="$('#deletePost').submit();">remove</a>
+			  </form:form>
             </header>
 
             <footer class="post-info">
@@ -48,4 +47,4 @@
 </section>
 <!-- /#content -->
 
-<%@ include file="../footer.jsp"%>
+<%@ include file="/WEB-INF/views/footer.jsp" %>

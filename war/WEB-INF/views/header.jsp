@@ -11,7 +11,7 @@
     <meta name="description" content="personal freelancer web developer portfolio and blog website" />
     <meta name="author" content="Daniel Gonzalez" />
     
-    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
 
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -27,7 +27,7 @@
 	<![endif]-->
     
     
-	<script src="js/jquery-1.6.1.min.js" type="text/javascript"></script>
+	<script src="/js/jquery-1.6.1.min.js" type="text/javascript"></script>
     
     <!-- %= auto_discovery_link_tag(:rss, {:controller => 'posts', :action=> 'index', :format => 'rss'}, {:title => 'RSS Feeds'}) %-->
   	
@@ -68,7 +68,7 @@
 	<aside id="featured" class="body">
 		<article>
 			<figure>
-				<img src="images/sm-logo.gif" alt="dangt85 logo">
+				<img src="/images/sm-logo.gif" alt="dangt85 logo">
 			</figure>
 			<hgroup>
 				<h2>Featured Article</h2>

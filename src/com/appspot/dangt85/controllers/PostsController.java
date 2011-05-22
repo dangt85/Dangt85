@@ -70,4 +70,11 @@ public class PostsController {
 		}
 		return post;
 	}
+	
+	@RequestMapping(method = RequestMethod.DELETE)
+	public String deletePet(@PathVariable Long id) {
+//		Pet pet = this.clinic.loadPet(petId);
+//		this.clinic.deletePet(petId);
+		return "redirect:/owners/";// + pet.getOwner().getId();
+	}
 }

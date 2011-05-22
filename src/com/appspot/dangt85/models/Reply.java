@@ -12,7 +12,7 @@ public class Reply {
 
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Long key;
+	private Long id;
 
 	@Persistent
 	private String repliedBy;
@@ -33,12 +33,12 @@ public class Reply {
 		this.createdAt = createdAt;
 	}
 
-	public Long getKey() {
-		return key;
+	public Long getId() {
+		return id;
 	}
 
-	public void setKey(Long key) {
-		this.key = key;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getRepliedBy() {
