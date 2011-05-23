@@ -49,16 +49,17 @@
 		<h1><a href="/">Daniel Gonzalez <strong>Software Developer in the year <del>2022</del> <ins>2011</ins></strong></a></h1>
 		<nav>
 			<ul>
-				<li <% if(request.getAttribute("javax.servlet.forward.request_uri").equals("/")) { out.write("class=\"active\""); } %>>
+              <% String currentPath = request.getAttribute("javax.servlet.forward.request_uri").toString(); %>
+				<li <% if(currentPath.equals("/")) { out.write("class=\"active\""); } %>>
 					<a href="/">home</a>
 				</li>
-				<li <% if(request.getAttribute("javax.servlet.forward.request_uri").equals("/posts")) { out.write("class=\"active\""); } %>>
+				<li <% if(currentPath.startsWith("/posts")) { out.write("class=\"active\""); } %>>
 					<a href="/posts">blog</a>
 				</li>
-				<li <% if(request.getAttribute("javax.servlet.forward.request_uri").equals("/projects")) { out.write("class=\"active\""); } %>>
+				<li <% if(currentPath.startsWith("/projects")) { out.write("class=\"active\""); } %>>
 					<a href="/projects">portfolio</a>
 				</li>
-				<li <% if(request.getAttribute("javax.servlet.forward.request_uri").equals("/contact")) { out.write("class=\"active\""); } %>>
+				<li <% if(currentPath.startsWith("/contact")) { out.write("class=\"active\""); } %>>
 					<a href="/contact">contact</a>
 				</li>
 			</ul>
@@ -68,7 +69,7 @@
 	<aside id="featured" class="body">
 		<article>
 			<figure>
-				<img src="/images/sm-logo.gif" alt="dangt85 logo">
+				<img src="/images/sm-logo.gif" alt="dangt85 logo" />
 			</figure>
 			<hgroup>
 				<h2>Featured Article</h2>
