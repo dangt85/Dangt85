@@ -1,4 +1,5 @@
-<%@ include file="header.jsp" %>
+<%@ include file="/WEB-INF/views/includes.jsp" %>
+<%@ include file="/WEB-INF/views/header.jsp" %>
 
 	<script type="text/javascript">
 	<!--
@@ -7,7 +8,7 @@
 			$('#content > ol#posts-list').load('/text.txt', function(response, status, xhr) {
 				if (status == 'error') {
 					var msg = 'Sorry but there was an error: ';
-					$('#error').html(msg + xhr.status + ' ' + xhr.statusText);
+					$('p.error').css('display', 'block').html(msg + xhr.status + ' ' + xhr.statusText);
 				}
 			});
 		});
@@ -16,6 +17,8 @@
 	</script>
 
     <section id="content" class="body">
+        <p class="error" style="display: none;">
+        </p>
     	<nav>
     		<a href="#hentry" id="next-pag">next</a>
     	</nav>
@@ -33,7 +36,7 @@
 					</abbr>
 
 					<address class="vcard author">
-						By <a class="url fn" href="/">Daniel Gonzalez</a>
+						By <a class="url fn" href="#">Daniel Gonzalez</a>
 					</address>
 				</footer><!-- /.post-info -->
 				
@@ -45,4 +48,4 @@
         </ol><!-- /#posts-list -->
 	</section><!-- /#content -->
 
-<%@ include file="footer.jsp" %>
+<%@ include file="/WEB-INF/views/footer.jsp" %>

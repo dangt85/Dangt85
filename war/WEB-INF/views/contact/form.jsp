@@ -34,6 +34,10 @@
         <form:textarea path="message" rows="4" cols="30" />
 <%--         <form:errors path="message" /> --%>
       </p>
+      <div id="recaptcha" style="margin-top:10px" align="center">
+<%--    <%# :theme => red, white, blackglass, clean, custom %> --%>
+<%--     <%= recaptcha_tags :display => {:theme => 'blackglass', :tabindex => '6'} %> --%>
+  </div>
       <div style="clear: both"></div>
       <p>
         <input id="create" type="submit" value="Create" />
