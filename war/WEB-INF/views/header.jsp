@@ -28,6 +28,7 @@
     
     
 	<script src="/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+	<script src="/js/application.js" type="text/javascript"></script>
     
     <!-- %= auto_discovery_link_tag(:rss, {:controller => 'posts', :action=> 'index', :format => 'rss'}, {:title => 'RSS Feeds'}) %-->
   	

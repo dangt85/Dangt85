@@ -20,13 +20,18 @@
                 <a href="#" rel="bookmark"
                   title="Permalink to this POST TITLE">${post.title}</a>
               </h2>
-              <form:form id="deletePost" method="delete">
-                <a href="#" onclick="$('#deletePost').submit();">remove</a>
+              <spring:url value="/posts/{postId}" var="deletePostURL">
+                <spring:param name="postId" value="${post.id}" />
+              </spring:url>
+              <form:form id="deletePost" action="${fn:escapeXml(deletePostURL)}" method="delete">
+                <a href="#" onclick="javascript:confirmDelete('post', '#deletePost');">remove</a>
 			  </form:form>
             </header>
 
             <footer class="post-info">
-              <abbr class="published" title="2005-10-10T14:07:00-07:00">${post.createdAt}</abbr>
+              <abbr class="published" title="2005-10-10T14:07:00-07:00">
+                <fmt:formatDate value="${post.createdAt}" pattern="MM/dd/yyyy"/>
+              </abbr>
 
               <address class="vcard author">
                 By <a class="url fn" href="#">Daniel Gonzalez</a>
@@ -35,7 +40,7 @@
             <!-- /.post-info -->
 
             <div class="entry-content">
-              <p>${post.content}</p>
+              <p>${post.content.value}</p>
             </div>
             <!-- /.entry-content -->
           </article>

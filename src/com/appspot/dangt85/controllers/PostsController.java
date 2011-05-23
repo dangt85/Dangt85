@@ -31,7 +31,7 @@ public class PostsController {
 		
 		String query = "select from " + Post.class.getName();
 		List<Post> posts = (List<Post>) pm.newQuery(query).execute();
-		
+
 		if(!posts.isEmpty()) {
 			mav.addObject("posts", posts);
 		}
@@ -71,10 +71,21 @@ public class PostsController {
 		return post;
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE)
-	public String deletePet(@PathVariable Long id) {
-//		Pet pet = this.clinic.loadPet(petId);
-//		this.clinic.deletePet(petId);
-		return "redirect:/owners/";// + pet.getOwner().getId();
+	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+	public String delete(@PathVariable Long id) {
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Post post = pm.getObjectById(Post.class, id);
+
+		if (post == null) {
+			throw new ResourceNotFoundException(id);
+		}
+		
+		try {
+			pm.deletePersistent(post);
+		} finally {
+			pm.close();
+		}
+		
+		return "redirect:/posts";
 	}
 }
