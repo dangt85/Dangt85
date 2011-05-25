@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.appspot.dangt85.models.PMF;
 import com.appspot.dangt85.models.Post;
+import com.appspot.dangt85.models.validators.PostValidator;
+import com.appspot.dangt85.utils.FlashMap;
+import com.appspot.dangt85.utils.ResourceNotFoundException;
 
 @Controller
 @RequestMapping(value = "/posts")
@@ -46,12 +50,22 @@ public class PostsController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String create(@ModelAttribute("post") Post post, BindingResult result, Model model) {
-
+	public String create(@ModelAttribute("post") Post post, BindingResult result, HttpSession session, Model model) {
+		new PostValidator().validate(post, result);
+		
+		if (result.hasErrors()) {
+			FlashMap.setSuccessMessage("There were errors in the form");
+			return "posts/new";
+		}
+		
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
 			post.setCreatedAt(new Date());
 			pm.makePersistent(post);
+			FlashMap.setSuccessMessage("The post was successfully created");
+		} catch(Exception e) {
+			FlashMap.setSuccessMessage("The post could not be saved");
+			return "posts/new";
 		} finally {
 			pm.close();
 		}

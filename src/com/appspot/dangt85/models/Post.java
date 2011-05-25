@@ -9,8 +9,6 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-import com.google.appengine.api.datastore.Text;
-
 @PersistenceCapable
 public class Post {
 
@@ -22,7 +20,7 @@ public class Post {
 	private String title;
 
 	@Persistent
-	private Text content;
+	private String content;
 
 	@Persistent
 	private Date createdAt;
@@ -35,7 +33,7 @@ public class Post {
 		this.replies = new ArrayList<Reply>();
 	}
 
-	public Post(String title, Text content, Date createdAt) {
+	public Post(String title, String content, Date createdAt) {
 		super();
 		this.title = title;
 		this.content = content;
@@ -59,11 +57,11 @@ public class Post {
 		this.title = title;
 	}
 
-	public Text getContent() {
+	public String getContent() {
 		return content;
 	}
 
-	public void setContent(Text content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 

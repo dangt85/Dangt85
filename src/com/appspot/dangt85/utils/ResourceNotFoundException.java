@@ -1,4 +1,4 @@
-package com.appspot.dangt85.controllers;
+package com.appspot.dangt85.utils;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

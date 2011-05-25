@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -16,11 +15,10 @@ public final class FlashMap {
 	
 	@SuppressWarnings("unchecked")
 	public static Map<String, Object> getCurrent(HttpServletRequest request) {
-		HttpSession session = request.getSession(); 
-		Map<String, Object> flash = (Map<String, Object>) session.getAttribute(FLASH_MAP_ATTRIBUTE);
+		Map<String, Object> flash = (Map<String, Object>) request.getAttribute(FLASH_MAP_ATTRIBUTE);
 		if (flash == null) {
 			flash = new HashMap<String, Object>();
-			session.setAttribute(FLASH_MAP_ATTRIBUTE, flash);
+			request.setAttribute(FLASH_MAP_ATTRIBUTE, flash);
 		}
 		return flash;
 	}

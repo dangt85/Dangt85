@@ -1,3 +1,5 @@
+    <%@ include file="/WEB-INF/views/featured.jsp" %>
+    
     <section id="extras" class="body">
 		<div class="blogroll">
 			<h2>blogroll</h2>
