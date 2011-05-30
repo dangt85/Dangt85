@@ -4,7 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,9 @@ import com.appspot.dangt85.models.Post;
 import com.appspot.dangt85.models.validators.PostValidator;
 import com.appspot.dangt85.utils.FlashMap;
 import com.appspot.dangt85.utils.ResourceNotFoundException;
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 
 @Controller
 @RequestMapping(value = "/posts")
@@ -30,13 +34,13 @@ public class PostsController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView();
-		
+
 		PersistenceManager pm = PMF.get().getPersistenceManager();
-		
+
 		String query = "select from " + Post.class.getName();
 		List<Post> posts = (List<Post>) pm.newQuery(query).execute();
 
-		if(!posts.isEmpty()) {
+		if (!posts.isEmpty()) {
 			mav.addObject("posts", posts);
 		}
 		mav.setViewName("posts/list");
@@ -44,33 +48,55 @@ public class PostsController {
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public String getCreateForm(Model model) {
-		model.addAttribute(new Post());
-		return "posts/new";
+	public String getCreateForm(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		UserService userService = UserServiceFactory.getUserService();
+		User user = userService.getCurrentUser();
+
+		if (user != null) {
+			model.addAttribute(new Post());
+			return "posts/new";
+		} else {
+			return "redirect:"
+					+ userService.createLoginURL(request.getRequestURI());
+		}
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String create(@ModelAttribute("post") Post post, BindingResult result, HttpSession session, Model model) {
-		new PostValidator().validate(post, result);
-		
-		if (result.hasErrors()) {
-			FlashMap.setErrorMessage("There were errors in the form");
-			return "posts/new";
-		}
-		
-		PersistenceManager pm = PMF.get().getPersistenceManager();
-		try {
-			post.setCreatedAt(new Date());
-			pm.makePersistent(post);
-			FlashMap.setSuccessMessage("The post was successfully created");
-		} catch(Exception e) {
-			FlashMap.setErrorMessage("The post could not be saved");
-			return "posts/new";
-		} finally {
-			pm.close();
-		}
+	public String create(@ModelAttribute("post") Post post,
+			BindingResult result, HttpServletRequest request,
+			HttpServletResponse response, Model model) {
 
-		return "redirect:posts";
+		UserService userService = UserServiceFactory.getUserService();
+		User user = userService.getCurrentUser();
+
+		if (user != null) {
+
+			new PostValidator().validate(post, result);
+
+			if (result.hasErrors()) {
+				FlashMap.setErrorMessage("There were errors in the form");
+				return "posts/new";
+			}
+
+			PersistenceManager pm = PMF.get().getPersistenceManager();
+			try {
+				post.setCreatedAt(new Date());
+				pm.makePersistent(post);
+				FlashMap.setSuccessMessage("The post was successfully created");
+			} catch (Exception e) {
+				FlashMap.setErrorMessage("The post could not be saved");
+				return "posts/new";
+			} finally {
+				pm.close();
+			}
+
+			return "redirect:posts";
+
+		} else {
+			return "redirect:"
+					+ userService.createLoginURL(request.getRequestURI());
+		}
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
@@ -84,22 +110,32 @@ public class PostsController {
 		}
 		return post;
 	}
-	
+
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable Long id) {
-		PersistenceManager pm = PMF.get().getPersistenceManager();
-		Post post = pm.getObjectById(Post.class, id);
 
-		if (post == null) {
-			throw new ResourceNotFoundException(id);
+		UserService userService = UserServiceFactory.getUserService();
+		User user = userService.getCurrentUser();
+
+		if (user != null) {
+			PersistenceManager pm = PMF.get().getPersistenceManager();
+			Post post = pm.getObjectById(Post.class, id);
+
+			if (post == null) {
+				throw new ResourceNotFoundException(id);
+			}
+
+			try {
+				pm.deletePersistent(post);
+			} finally {
+				pm.close();
+			}
+			FlashMap.setSuccessMessage("The post was successfully deleted");
+
+			return "redirect:/posts";
+		} else {
+			FlashMap.setErrorMessage("The post could not be deleted");
+			return "posts/list";
 		}
-		
-		try {
-			pm.deletePersistent(post);
-		} finally {
-			pm.close();
-		}
-		
-		return "redirect:/posts";
 	}
 }

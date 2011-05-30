@@ -21,18 +21,20 @@
                     <c:out value="${post.title}" />
                   </a>
               </h2>
-              <spring:url value="/posts/{postId}" var="deletePostURL">
-                <spring:param name="postId" value="${post.id}" />
-              </spring:url>
-              <form:form id="deletePost"
-                action="${fn:escapeXml(deletePostURL)}" method="delete">
-                <a href="#"
-                  onclick="javascript:confirmDelete('post', '#deletePost');">remove</a>
-              </form:form>
             </header>
 
             <footer class="post-info">
-              <abbr class="published" title="2005-10-10T14:07:00-07:00">
+              <% if(user != null) { %>
+                <spring:url value="/posts/{postId}" var="deletePostURL">
+                  <spring:param name="postId" value="${post.id}" />
+                </spring:url>
+                <form:form id="deletePost"
+                  action="${fn:escapeXml(deletePostURL)}" method="delete">
+                  <a href="#"
+                    onclick="javascript:confirmDelete('post', '#deletePost');">Delete</a>
+                </form:form>
+              <% } %>
+              <abbr class="published" title="${post.createdAt}">
                 <fmt:formatDate value="${post.createdAt}"
                   pattern="MM/dd/yyyy" /> </abbr>
 

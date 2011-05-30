@@ -5,6 +5,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page import="com.google.appengine.api.users.User" %>
+<%@ page import="com.google.appengine.api.users.UserService" %>
+<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -71,6 +74,16 @@
 		</nav>
 	</header><!-- /#banner -->
   
+    <% 
+      UserService userService = UserServiceFactory.getUserService();
+      User user = userService.getCurrentUser();
+      if(user != null) { 
+    %>
+        <section id="content" class="body" style="text-align: right;">
+          Welcome <b><%= user.getNickname() %></b> | <a href="<%= userService.createLogoutURL("/") %>">logout</a>
+        </section>
+    <% } %>
+    
     <c:if test="${not empty message}">
       <section id="content" class="body">
         <p id="message" class="${message.type}">${message.text}</p> 

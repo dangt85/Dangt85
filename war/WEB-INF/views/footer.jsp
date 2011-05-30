@@ -40,28 +40,19 @@
 				<span class="role">About me...</span>
 			</span><!-- /.primary -->
 		
-			<!-- img src="./Smashing HTML5!_files/avatar.gif" alt="Smashing Magazine Logo" class="photo"-->
 			<img src="/images/coliseo.jpg" class="logo" height="40" width="40" alt="thumbnail" />
 		
 			<span class="bio">I'm a Computer Science Bachelor from the Central University of Venezuela.</span>
 		
+            <p style="text-align: right">
+              <a href="/">dangt85.appspot.com</a> &copy; 2009 - 2011
+            </p>
 		</address><!-- /#about -->
 
-		<p>
-          <a href="/">dangt85.appspot.com</a> &copy; 2009 - 2011
-		  <img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif"
-			alt="Powered by Google App Engine" />
-		</p>
-		
+        <p style="text-align: center">
+          <img src="http://code.google.com/appengine/images/appengine-noborder-120x30.gif"
+            alt="Powered by Google App Engine" />
+        </p>
 	</footer><!-- /#contentinfo -->
-	
-	<!-- script type="text/javascript">
-	    $('qsearch').style.border = 'none';
-		$('qsearch').style.padding = '5px';
-		$('qsearch').style.color = '#bababa';
-		$('qsearch').style.background = 'transparent';
-		$('qsearch').focus();
-		$('qsearch').blur();
-    </script-->
   </body>
 </html>

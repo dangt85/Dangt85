@@ -59,7 +59,7 @@ public class ContactController {
 				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(
 						"dangt85@gmail.com", "Daniel Gonzalez"));
 				msg.setSubject("Message from " + contact.getName());
-				msg.setText("Content: " + contact.getMessage());
+				msg.setText(contact.getMessage());
 				Transport.send(msg);
 
 			} catch (AddressException e) {
