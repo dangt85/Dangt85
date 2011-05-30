@@ -54,7 +54,7 @@ public class PostsController {
 		new PostValidator().validate(post, result);
 		
 		if (result.hasErrors()) {
-			FlashMap.setSuccessMessage("There were errors in the form");
+			FlashMap.setErrorMessage("There were errors in the form");
 			return "posts/new";
 		}
 		
@@ -64,7 +64,7 @@ public class PostsController {
 			pm.makePersistent(post);
 			FlashMap.setSuccessMessage("The post was successfully created");
 		} catch(Exception e) {
-			FlashMap.setSuccessMessage("The post could not be saved");
+			FlashMap.setErrorMessage("The post could not be saved");
 			return "posts/new";
 		} finally {
 			pm.close();

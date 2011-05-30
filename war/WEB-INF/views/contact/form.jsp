@@ -1,12 +1,8 @@
-<%@ include file="/WEB-INF/views/includes.jsp"%>
+<%@ page import="net.tanesha.recaptcha.ReCaptcha" %>
+<%@ page import="net.tanesha.recaptcha.ReCaptchaFactory" %>
 <%@ include file="/WEB-INF/views/header.jsp"%>
 
 <section id="content" class="body">
-
-  <c:if test="${not empty message}">
-    <p id="message" class="${message.type}">${message.text}</p>
-  </c:if>
-
   <form:form modelAttribute="contact" action="/contact" method="post">
     <fieldset>
       <legend>Send message</legend>
@@ -27,8 +23,11 @@
         <form:errors path="message" />
       </p>
       <div id="recaptcha" style="margin-top: 10px" align="center">
-        <%--    <%# :theme => red, white, blackglass, clean, custom %> --%>
-        <%--     <%= recaptcha_tags :display => {:theme => 'blackglass', :tabindex => '6'} %> --%>
+        <%
+          ReCaptcha c = ReCaptchaFactory.newReCaptcha("Psych, I joke, I joke, I kidd, I kidd", 
+              "Psych, I joke, I joke, I kidd, I kidd", false);
+          out.print(c.createRecaptchaHtml(null, null));
+        %>
       </div>
       <div style="clear: both"></div>
       <p>

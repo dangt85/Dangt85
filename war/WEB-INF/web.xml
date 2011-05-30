@@ -17,7 +17,7 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<filter>
 		<filter-name>httpMethodFilter</filter-name>
 		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
@@ -25,5 +25,19 @@
 	<filter-mapping>
 		<filter-name>httpMethodFilter</filter-name>
 		<servlet-name>dispatcher</servlet-name>
+	</filter-mapping>
+
+	<!-- Allows attributes to be accessed on the next request (typically success 
+		messages) -->
+	<!-- Note: this is a sample-specific implementation of the FlashMap concept -->
+	<!-- Official flash map support is planned for Spring 3.1 -->
+	<filter>
+		<filter-name>flashMapFilter</filter-name>
+		<filter-class>com.appspot.dangt85.utils.FlashMapFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>flashMapFilter</filter-name>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 </web-app>

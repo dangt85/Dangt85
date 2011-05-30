@@ -1,11 +1,6 @@
-<%@ include file="/WEB-INF/views/includes.jsp"%>
 <%@ include file="/WEB-INF/views/header.jsp"%>
 
 <section id="content" class="body">
-
-  <c:if test="${not empty message}">
-    <p id="message" class="${message.type}">${message.text}</p>	
-  </c:if>
 
   <form:form modelAttribute="post" action="/posts" method="post">
     <fieldset>

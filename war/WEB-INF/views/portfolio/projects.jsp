@@ -1,4 +1,3 @@
-<%@ include file="/WEB-INF/views/includes.jsp" %>
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
 	<script type="text/javascript">
@@ -17,8 +16,7 @@
 	</script>
 
     <section id="content" class="body">
-        <p class="error" style="display: none;">
-        </p>
+
     	<nav>
     		<a href="#hentry" id="next-pag">next</a>
     	</nav>

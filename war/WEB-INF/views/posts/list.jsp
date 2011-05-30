@@ -1,4 +1,3 @@
-<%@ include file="/WEB-INF/views/includes.jsp"%>
 <%@ include file="/WEB-INF/views/header.jsp"%>
 
 <section id="content" class="body">

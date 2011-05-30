@@ -4,34 +4,38 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 public final class FlashMap {
-	
+
 	static final String FLASH_MAP_ATTRIBUTE = FlashMap.class.getName();
-	
+
 	@SuppressWarnings("unchecked")
 	public static Map<String, Object> getCurrent(HttpServletRequest request) {
-		Map<String, Object> flash = (Map<String, Object>) request.getAttribute(FLASH_MAP_ATTRIBUTE);
+		HttpSession session = request.getSession();
+		Map<String, Object> flash = (Map<String, Object>) session
+				.getAttribute(FLASH_MAP_ATTRIBUTE);
 		if (flash == null) {
 			flash = new HashMap<String, Object>();
-			request.setAttribute(FLASH_MAP_ATTRIBUTE, flash);
+			session.setAttribute(FLASH_MAP_ATTRIBUTE, flash);
 		}
 		return flash;
 	}
-	
+
 	private FlashMap() {
 	}
 
 	public static void put(String key, Object value) {
-		getCurrent(getRequest(RequestContextHolder.currentRequestAttributes())).put(key, value);
+		getCurrent(getRequest(RequestContextHolder.currentRequestAttributes()))
+				.put(key, value);
 	}
 
-	public static void setInfoMessage(String info) {
-		put(MESSAGE_KEY, new Message(MessageType.info, info));
+	public static void setNoticeMessage(String notice) {
+		put(MESSAGE_KEY, new Message(MessageType.notice, notice));
 	}
 
 	public static void setErrorMessage(String error) {
@@ -42,16 +46,17 @@ public final class FlashMap {
 		put(MESSAGE_KEY, new Message(MessageType.success, success));
 	}
 
-	private static HttpServletRequest getRequest(RequestAttributes requestAttributes) {
-		return ((ServletRequestAttributes)requestAttributes).getRequest();
+	private static HttpServletRequest getRequest(
+			RequestAttributes requestAttributes) {
+		return ((ServletRequestAttributes) requestAttributes).getRequest();
 	}
 
 	private static final String MESSAGE_KEY = "message";
 
 	public static final class Message {
-		
+
 		private final MessageType type;
-		
+
 		private final String text;
 
 		public Message(MessageType type, String text) {
@@ -66,15 +71,15 @@ public final class FlashMap {
 		public String getText() {
 			return text;
 		}
-		
+
 		public String toString() {
 			return type + ": " + text;
 		}
-	
+
 	}
-	
+
 	public static enum MessageType {
-		info, success, error
+		notice, success, error
 	}
-	
+
 }
