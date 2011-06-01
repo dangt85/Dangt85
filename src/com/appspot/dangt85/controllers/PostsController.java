@@ -1,6 +1,6 @@
 package com.appspot.dangt85.controllers;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.appspot.dangt85.models.PMF;
@@ -81,7 +80,6 @@ public class PostsController {
 
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			try {
-				post.setCreatedAt(new Date());
 				pm.makePersistent(post);
 				FlashMap.setSuccessMessage("The post was successfully created");
 			} catch (Exception e) {
@@ -100,15 +98,21 @@ public class PostsController {
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	public @ResponseBody
-	Post get(@PathVariable Long id) {
+	public ModelAndView get(@PathVariable Long id) {
+		ModelAndView mav = new ModelAndView();
+		
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Post post = pm.getObjectById(Post.class, id);
 
 		if (post == null) {
 			throw new ResourceNotFoundException(id);
+		} else {
+			List<Post> posts = new ArrayList<Post>();
+			posts.add(post);
+			mav.addObject("posts", posts);
 		}
-		return post;
+		mav.setViewName("posts/list");
+		return mav;
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)

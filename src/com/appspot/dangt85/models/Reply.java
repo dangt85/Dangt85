@@ -26,8 +26,11 @@ public class Reply {
 	@Persistent
 	private Post post;
 
+	public Reply() {
+		this.createdAt = new Date();
+	}
+
 	public Reply(String repliedBy, Text content, Date createdAt) {
-		super();
 		this.repliedBy = repliedBy;
 		this.content = content;
 		this.createdAt = createdAt;

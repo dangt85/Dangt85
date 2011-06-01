@@ -29,12 +29,11 @@ public class Post {
 	private List<Reply> replies;
 
 	public Post() {
-		super();
+		this.createdAt = new Date();
 		this.replies = new ArrayList<Reply>();
 	}
 
 	public Post(String title, String content, Date createdAt) {
-		super();
 		this.title = title;
 		this.content = content;
 		this.createdAt = createdAt;

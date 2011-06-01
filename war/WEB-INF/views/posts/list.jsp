@@ -16,7 +16,7 @@
           <article class="hentry">
             <header>
               <h2 class="entry-title">
-                <a href="#" rel="bookmark"
+                <a href="/posts/${post.id}" rel="bookmark"
                   title="Permalink to this POST TITLE">
                     <c:out value="${post.title}" />
                   </a>

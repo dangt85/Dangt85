@@ -7,8 +7,10 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
+import com.google.appengine.api.datastore.ShortBlob;
+
 @PersistenceCapable
-public class Contact {
+public class Project {
 
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
@@ -18,18 +20,23 @@ public class Contact {
 	private String name;
 
 	@Persistent
-	private String message;
+	private String description;
+
+	@Persistent
+	private ShortBlob image;
 
 	@Persistent
 	private Date createdAt;
 
-	public Contact() {
+	public Project() {
 		this.createdAt = new Date();
 	}
 
-	public Contact(String name, String message, Date createdAt) {
+	public Project(String name, String description, ShortBlob image,
+			Date createdAt) {
 		this.name = name;
-		this.message = message;
+		this.description = description;
+		this.image = image;
 		this.createdAt = createdAt;
 	}
 
@@ -49,12 +56,20 @@ public class Contact {
 		this.name = name;
 	}
 
-	public String getMessage() {
-		return message;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public ShortBlob getImage() {
+		return image;
+	}
+
+	public void setImage(ShortBlob image) {
+		this.image = image;
 	}
 
 	public Date getCreatedAt() {
@@ -64,4 +79,5 @@ public class Contact {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+
 }
