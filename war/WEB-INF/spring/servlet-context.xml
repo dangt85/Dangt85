@@ -18,6 +18,10 @@
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
 
+	<bean id="multipartResolver" class="org.gmr.web.multipart.GMultipartResolver">
+		<property name="maxUploadSize" value="100000" />
+	</bean>
+
 	<!-- Resolve logical view names to .jsp resources in the /WEB-INF/views 
 		directory -->
 	<bean

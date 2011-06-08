@@ -66,7 +66,7 @@ public class PostsController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String create(@ModelAttribute("post") Post post,
 			BindingResult result, HttpServletRequest request,
-			HttpServletResponse response, Model model) {
+			HttpServletResponse response) {
 
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
@@ -108,8 +108,7 @@ public class PostsController {
 	@RequestMapping(value = "{id}", method = RequestMethod.POST)
 	public String reply(@PathVariable Long id,
 			@ModelAttribute("reply") Reply reply, BindingResult result,
-			HttpServletRequest request, HttpServletResponse response,
-			Model model) {
+			HttpServletRequest request, HttpServletResponse response) {
 
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();

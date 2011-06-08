@@ -24,13 +24,16 @@ $(document).ready(function() {
     </p>
   </c:if>
   
-  <nav>
-    <a href="#hentry" id="next-pag">next</a>
-  </nav>
+<!--   <nav> -->
+<!--     <a href="#hentry" id="next-pag">next</a> -->
+<!--   </nav> -->
   
   <c:if test="${not empty projects}">
     <ol id="posts-list" class="hfeed">
       <c:forEach items="${projects}" var="project">
+      
+      <img src="${project.imageURL}" alt="iamge" />
+      
         <li>
           <article class="hentry">
             <header>

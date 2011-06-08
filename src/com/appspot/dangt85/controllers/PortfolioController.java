@@ -1,6 +1,7 @@
 package com.appspot.dangt85.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.jdo.PersistenceManager;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,11 @@ import com.appspot.dangt85.models.PMF;
 import com.appspot.dangt85.models.Project;
 import com.appspot.dangt85.utils.FlashMap;
 import com.appspot.dangt85.utils.ResourceNotFoundException;
+import com.google.appengine.api.blobstore.BlobKey;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+import com.google.appengine.api.images.ImagesService;
+import com.google.appengine.api.images.ImagesServiceFactory;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
@@ -26,6 +32,8 @@ import com.google.appengine.api.users.UserServiceFactory;
 @Controller
 @RequestMapping(value = "/projects")
 public class PortfolioController {
+	
+	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(method = RequestMethod.GET)
@@ -52,6 +60,7 @@ public class PortfolioController {
 
 		if (user != null) {
 			model.addAttribute(new Project());
+			model.addAttribute("uploadURL", blobstoreService.createUploadUrl("/projects"));
 			return "projects/new";
 		} else {
 			return "redirect:"
@@ -62,7 +71,7 @@ public class PortfolioController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String create(@ModelAttribute("project") Project project,
 			BindingResult result, HttpServletRequest request,
-			HttpServletResponse response, Model model) {
+			HttpServletResponse response) {
 
 		UserService userService = UserServiceFactory.getUserService();
 		User user = userService.getCurrentUser();
@@ -78,7 +87,15 @@ public class PortfolioController {
 
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			try {
-				pm.makePersistent(project);
+
+				Map<String, BlobKey> blobs = blobstoreService.getUploadedBlobs(request);
+		        BlobKey blobKey = blobs.get("file");
+		        
+		        ImagesService imagesService = ImagesServiceFactory.getImagesService();
+		        project.setImageURL(imagesService.getServingUrl(blobKey));
+		        
+		        pm.makePersistent(project);
+		        
 				FlashMap.setSuccessMessage("The project was successfully created");
 			} catch (Exception e) {
 				FlashMap.setErrorMessage("The project could not be saved");

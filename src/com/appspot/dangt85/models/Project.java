@@ -7,7 +7,7 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-import com.google.appengine.api.datastore.ShortBlob;
+import org.springframework.web.multipart.MultipartFile;
 
 @PersistenceCapable
 public class Project {
@@ -23,21 +23,15 @@ public class Project {
 	private String description;
 
 	@Persistent
-	private ShortBlob image;
+	private String imageURL;
+	
+	private MultipartFile file;
 
 	@Persistent
 	private Date createdAt;
 
 	public Project() {
 		this.createdAt = new Date();
-	}
-
-	public Project(String name, String description, ShortBlob image,
-			Date createdAt) {
-		this.name = name;
-		this.description = description;
-		this.image = image;
-		this.createdAt = createdAt;
 	}
 
 	public Long getId() {
@@ -64,12 +58,20 @@ public class Project {
 		this.description = description;
 	}
 
-	public ShortBlob getImage() {
-		return image;
+	public String getImageURL() {
+		return imageURL;
 	}
 
-	public void setImage(ShortBlob image) {
-		this.image = image;
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
 
 	public Date getCreatedAt() {

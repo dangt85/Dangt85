@@ -2,7 +2,7 @@
 
 <section id="content" class="body">
 
-  <form:form modelAttribute="project" action="/projects" method="post" enctype="multipart/form-data">
+  <form:form modelAttribute="project" action="${uploadURL}" method="post" enctype="multipart/form-data">
     <fieldset>
       <legend>Create new project</legend>
 
@@ -24,11 +24,11 @@
       <div style="clear: both"></div>
       
       <p>
-        <form:label id="imageLabel" for="image" path="image"
+        <form:label id="fileLabel" for="file" path="file"
           cssErrorClass="error">Image</form:label>
         <br />
-        <form:input path="image" type="file" />
-        <form:errors path="image" />
+        <form:input path="file" type="file" />
+        <form:errors path="file" />
       </p>
       <p>
         <input id="create" type="submit" value="Create" />
