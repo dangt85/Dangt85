@@ -3,22 +3,24 @@ package com.appspot.dangt85.models;
 import java.util.Date;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-import com.google.appengine.api.datastore.Text;
+import com.google.appengine.api.datastore.Key;
 
+@PersistenceCapable
 public class Reply {
 
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Long id;
+	private Key id;
 
 	@Persistent
 	private String repliedBy;
 
 	@Persistent
-	private Text content;
+	private String content;
 
 	@Persistent
 	private Date createdAt;
@@ -30,17 +32,17 @@ public class Reply {
 		this.createdAt = new Date();
 	}
 
-	public Reply(String repliedBy, Text content, Date createdAt) {
+	public Reply(String repliedBy, String content, Date createdAt) {
 		this.repliedBy = repliedBy;
 		this.content = content;
 		this.createdAt = createdAt;
 	}
 
-	public Long getId() {
+	public Key getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Key id) {
 		this.id = id;
 	}
 
@@ -52,11 +54,11 @@ public class Reply {
 		this.repliedBy = repliedBy;
 	}
 
-	public Text getContent() {
+	public String getContent() {
 		return content;
 	}
 
-	public void setContent(Text content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 

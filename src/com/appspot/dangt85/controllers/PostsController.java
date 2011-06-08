@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.appspot.dangt85.models.PMF;
 import com.appspot.dangt85.models.Post;
+import com.appspot.dangt85.models.Reply;
 import com.appspot.dangt85.models.validators.PostValidator;
 import com.appspot.dangt85.utils.FlashMap;
 import com.appspot.dangt85.utils.ResourceNotFoundException;
@@ -41,6 +42,7 @@ public class PostsController {
 
 		if (!posts.isEmpty()) {
 			mav.addObject("posts", posts);
+			mav.addObject("reply", new Reply());
 		}
 		mav.setViewName("posts/list");
 		return mav;
@@ -71,6 +73,12 @@ public class PostsController {
 
 		if (user != null) {
 
+			// if (user.getEmail().equals("dangt85@gmail.com")) {
+			// FlashMap.setErrorMessage("You are not me!");
+			// return "redirect:"
+			// + userService.createLogoutURL("/");
+			// }
+
 			new PostValidator().validate(post, result);
 
 			if (result.hasErrors()) {
@@ -89,7 +97,7 @@ public class PostsController {
 				pm.close();
 			}
 
-			return "redirect:posts";
+			return "redirect:/posts";
 
 		} else {
 			return "redirect:"
@@ -97,10 +105,41 @@ public class PostsController {
 		}
 	}
 
+	@RequestMapping(value = "{id}", method = RequestMethod.POST)
+	public String reply(@PathVariable Long id,
+			@ModelAttribute("reply") Reply reply, BindingResult result,
+			HttpServletRequest request, HttpServletResponse response,
+			Model model) {
+
+		UserService userService = UserServiceFactory.getUserService();
+		User user = userService.getCurrentUser();
+
+		if (user != null) {
+
+			PersistenceManager pm = PMF.get().getPersistenceManager();
+			try {
+				Post post = pm.getObjectById(Post.class, id);
+				reply.setRepliedBy(user.getNickname());
+				post.addReply(reply);
+				pm.makePersistent(post);
+
+				FlashMap.setSuccessMessage("The reply was successfully saved");
+			} catch (Exception e) {
+				e.printStackTrace();
+
+				FlashMap.setErrorMessage("The reply could not be saved");
+				return "posts/new";
+			} finally {
+				pm.close();
+			}
+		}
+		return "redirect:/posts";
+	}
+
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public ModelAndView get(@PathVariable Long id) {
 		ModelAndView mav = new ModelAndView();
-		
+
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Post post = pm.getObjectById(Post.class, id);
 
@@ -122,6 +161,12 @@ public class PostsController {
 		User user = userService.getCurrentUser();
 
 		if (user != null) {
+
+//			if (user.getEmail().equals("dangt85@gmail.com")) {
+//				FlashMap.setErrorMessage("You are not me!");
+//				return "redirect:" + userService.createLogoutURL("/");
+//			}
+
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			Post post = pm.getObjectById(Post.class, id);
 
