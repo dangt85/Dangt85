@@ -51,7 +51,7 @@ public final class FlashMap {
 		return ((ServletRequestAttributes) requestAttributes).getRequest();
 	}
 
-	private static final String MESSAGE_KEY = "flash";
+	private static final String MESSAGE_KEY = "message";
 
 	public static final class Message {
 

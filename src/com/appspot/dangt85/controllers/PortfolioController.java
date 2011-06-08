@@ -32,8 +32,9 @@ import com.google.appengine.api.users.UserServiceFactory;
 @Controller
 @RequestMapping(value = "/projects")
 public class PortfolioController {
-	
-	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+
+	private BlobstoreService blobstoreService = BlobstoreServiceFactory
+			.getBlobstoreService();
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping(method = RequestMethod.GET)
@@ -60,7 +61,8 @@ public class PortfolioController {
 
 		if (user != null) {
 			model.addAttribute(new Project());
-			model.addAttribute("uploadURL", blobstoreService.createUploadUrl("/projects"));
+			model.addAttribute("uploadURL",
+					blobstoreService.createUploadUrl("/projects"));
 			return "projects/new";
 		} else {
 			return "redirect:"
@@ -78,6 +80,11 @@ public class PortfolioController {
 
 		if (user != null) {
 
+			if (user.getEmail().equals("dangt85@gmail.com")) {
+				FlashMap.setErrorMessage("You are not me!");
+				return "redirect:" + userService.createLogoutURL("/");
+			}
+
 			// new ProjectValidator().validate(project, result);
 
 			// if (result.hasErrors()) {
@@ -88,14 +95,16 @@ public class PortfolioController {
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			try {
 
-				Map<String, BlobKey> blobs = blobstoreService.getUploadedBlobs(request);
-		        BlobKey blobKey = blobs.get("file");
-		        
-		        ImagesService imagesService = ImagesServiceFactory.getImagesService();
-		        project.setImageURL(imagesService.getServingUrl(blobKey));
-		        
-		        pm.makePersistent(project);
-		        
+				Map<String, BlobKey> blobs = blobstoreService
+						.getUploadedBlobs(request);
+				BlobKey blobKey = blobs.get("file");
+
+				ImagesService imagesService = ImagesServiceFactory
+						.getImagesService();
+				project.setImageURL(imagesService.getServingUrl(blobKey));
+
+				pm.makePersistent(project);
+
 				FlashMap.setSuccessMessage("The project was successfully created");
 			} catch (Exception e) {
 				FlashMap.setErrorMessage("The project could not be saved");
@@ -119,6 +128,12 @@ public class PortfolioController {
 		User user = userService.getCurrentUser();
 
 		if (user != null) {
+			
+			if (user.getEmail().equals("dangt85@gmail.com")) {
+				FlashMap.setErrorMessage("You are not me!");
+				return "redirect:" + userService.createLogoutURL("/");
+			}
+			
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			Project project = pm.getObjectById(Project.class, id);
 

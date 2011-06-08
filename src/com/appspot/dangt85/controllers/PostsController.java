@@ -73,11 +73,10 @@ public class PostsController {
 
 		if (user != null) {
 
-			// if (user.getEmail().equals("dangt85@gmail.com")) {
-			// FlashMap.setErrorMessage("You are not me!");
-			// return "redirect:"
-			// + userService.createLogoutURL("/");
-			// }
+			if (user.getEmail().equals("dangt85@gmail.com")) {
+				FlashMap.setErrorMessage("You are not me!");
+				return "redirect:" + userService.createLogoutURL("/");
+			}
 
 			new PostValidator().validate(post, result);
 
@@ -161,10 +160,10 @@ public class PostsController {
 
 		if (user != null) {
 
-//			if (user.getEmail().equals("dangt85@gmail.com")) {
-//				FlashMap.setErrorMessage("You are not me!");
-//				return "redirect:" + userService.createLogoutURL("/");
-//			}
+			if (user.getEmail().equals("dangt85@gmail.com")) {
+				FlashMap.setErrorMessage("You are not me!");
+				return "redirect:" + userService.createLogoutURL("/");
+			}
 
 			PersistenceManager pm = PMF.get().getPersistenceManager();
 			Post post = pm.getObjectById(Post.class, id);

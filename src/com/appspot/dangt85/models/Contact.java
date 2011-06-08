@@ -2,17 +2,9 @@ package com.appspot.dangt85.models;
 
 import java.util.Date;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
 
-@PersistenceCapable
 public class Contact {
-
-	@PrimaryKey
-	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
-	private Long id;
 
 	@Persistent
 	private String name;
@@ -31,14 +23,6 @@ public class Contact {
 		this.name = name;
 		this.message = message;
 		this.createdAt = createdAt;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getName() {
